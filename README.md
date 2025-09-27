@@ -1,8 +1,9 @@
-# Fullstack Agents Hackathon Starter
+# Fullstack Agents Hackathon Starter code
 
-Welcome to the Fullstack Agents hackathon! This starter gives you a complete AI-powered canvas application with real-world integrations. Utilizing [LlamaIndex](https://developers.llamaindex.ai), [Composio](https://docs.composio.dev), and [CopilotKit](https://docs.copilotkit.ai). 
+Welcome to the Fullstack Agents hackathon! This starter gives you a complete AI-powered canvas application with real-world integrations. Utilizing [LlamaIndex](https://developers.llamaindex.ai), [Composio](https://docs.composio.dev), and [CopilotKit](https://docs.copilotkit.ai).
 
 ## About this starter
+
 This is a starter template for building AI-powered canvas applications using LlamaIndex, CopilotKit, and Composio. It provides a modern Next.js application with an integrated LlamaIndex agent that manages a visual canvas of interactive cards with real-time AI synchronization and external tool integrations (Google Sheets, for this example) through Composio.
 
 This is an example application that we built to help you get started quickly. Everything you see can be customized, replaced, augmented or built upon.
@@ -10,16 +11,19 @@ This is an example application that we built to help you get started quickly. Ev
 https://github.com/user-attachments/assets/2a4ec718-b83b-4968-9cbe-7c1fe082e958
 
 ### LlamaIndex
+
 LlamaIndex is a framework for building generative AI applications, in particular Document Agents, i.e. agents that process unstructured data like PDFs, PowerPoints, Word files and more. The core framework has adapters for loading and storing data, while the Workflows framework provides a way to build an agent or multi-agent system and control how data moves around. Both frameworks can make use of LlamaCloud, an enterprise offering that provides RAG and structured data extraction as a service.
 
 [LlamaIndex ->](https://composio.dev/)
 
 ### Composio
+
 Composio is the fastest way to enable your AI agents to take real-world actions—without dealing with individual API integrations, authentication flows, or complex tool formatting. It provides access 3000+ tools out of the box across popular apps like Slack, GitHub, Notion, and more.
 
 [More about Composio ->](https://composio.dev/)
 
 ### CopilotKit
+
 CopilotKit connects your app's logic, state, and user context to the AI agents that deliver the animated and interactive part of your app experience — across both embedded UIs and fully headless interfaces. It gives you the tools to build, deploy, and monitor AI-assisted features that feel intuitive, helpful, and deeply integrated.
 
 [More about CopilotKit ->](https://copilotkit.ai)
@@ -29,21 +33,26 @@ CopilotKit connects your app's logic, state, and user context to the AI agents t
 This repository is designed to help you hit the ground running for the hackathon. Use it as a foundation for your project, a source of inspiration, or simply as a quick way to get started. The following steps will guide you through setting up the project locally.
 
 #### 📚 Documentation
+
 In case you get stuck, we highly recommend checking out the documentation.
+
 - [LlamaIndex Documentation](https://developers.llamaindex.ai/python/workflows) - Learn more about LlamaIndex and its features
 - [CopilotKit Documentation](https://docs.copilotkit.ai) - Explore CopilotKit's capabilities
 - [Composio Documentation](https://docs.composio.dev) - Learn about Composio's tool integrations
 - [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
 
 #### 🧑‍💻 Vibe coding
+
 Plug-in these resources to let coding agents help you and our team!
+
 - [vibe-llama](https://github.com/run-llama/vibe-llama)
 - [Copilotkit MCP](https://docs.copilotkit.ai/vibe-coding-mcp)
 
-
 #### Prerequisites
+
 Before getting started, you'll need to the following.
-- Node.js 20+ 
+
+- Node.js 20+
 - Python 3.10+
 - OpenAI API Key (LlamaIndex agent; `agent/.env`) ([platform.openai.com/api-keys](https://platform.openai.com/api-keys))
 - Composio API Key & Config ID (external tool integrations; `agent/.env`) ([app.composio.dev/developers](https://app.composio.dev/developers))
@@ -58,128 +67,131 @@ Before getting started, you'll need to the following.
 
 1. Install dependencies using your preferred package manager:
 
-    This will install both your Node and Python dependencies (using `uv`).
+   This will install both your Node and Python dependencies (using `uv`).
 
-    ```bash
-    # Using pnpm (recommended)
-    pnpm install
+   ```bash
+   # Using pnpm (recommended)
+   pnpm install
 
-    # Using npm
-    npm install
+   # Using npm
+   npm install
 
-    # Using yarn
-    yarn install
+   # Using yarn
+   yarn install
 
-    # Using bun
-    bun install
-    ```
+   # Using bun
+   bun install
+   ```
 
-    > **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the `.gitignore`.
+   > **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the `.gitignore`.
 
-3. Setup Googlesheets Integration
+2. Setup Googlesheets Integration
 
-    Navigate to https://app.composio.dev/developers, setup a Google Sheet integration and grab an API key.
+   Navigate to https://app.composio.dev/developers, setup a Google Sheet integration and grab an API key.
 
-    For the next step you'll need a Composio API key, auth config ID, and user ID.
+   For the next step you'll need a Composio API key, auth config ID, and user ID.
 
-    <details>
+   <details>
 
-    <summary>Show me how ->
-    
-    </summary>
+   <summary>Show me how ->
 
-    https://github.com/user-attachments/assets/159cec99-7ba2-4ee2-83dd-2d86e51afea1
+   </summary>
 
-    </details>
+   https://github.com/user-attachments/assets/159cec99-7ba2-4ee2-83dd-2d86e51afea1
 
-4. Set up your environment variables:
+   </details>
 
-    There are two `.env` files to configure:
+3. Set up your environment variables:
 
-    #### Backend
+   There are two `.env` files to configure:
 
-    Copy `agent/.env.example` to `agent/.env`:
+   #### Backend
 
-    ```bash
-    # OpenAI API key
-    OPENAI_API_KEY=""
+   Copy `agent/.env.example` to `agent/.env`:
 
-    # Composio secrets
-    COMPOSIO_API_KEY=""
-    COMPOSIO_GOOGLESHEETS_AUTH_CONFIG_ID=""
-    COMPOSIO_USER_ID="default"
-    ```
+   ```bash
+   # OpenAI API key
+   OPENAI_API_KEY=""
 
-    > **Note:** The OpenAI API key is required for the LlamaIndex agent to function
+   # Composio secrets
+   COMPOSIO_API_KEY=""
+   COMPOSIO_GOOGLESHEETS_AUTH_CONFIG_ID=""
+   COMPOSIO_USER_ID="default"
+   ```
 
-    #### Frontend (optional)
+   > **Note:** The OpenAI API key is required for the LlamaIndex agent to function
 
-    Copy `.env.local.example` to `.env` in the root directory:
+   #### Frontend (optional)
 
-    ```bash
-    # .env.local
-    COPILOT_CLOUD_PUBLIC_API_KEY="" # optional (for CopilotKit Cloud features)
-    ```
+   Copy `.env.local.example` to `.env` in the root directory:
 
-5. Start the development server:
-    ```bash
-    # Using pnpm
-    pnpm dev
+   ```bash
+   # .env.local
+   COPILOT_CLOUD_PUBLIC_API_KEY="" # optional (for CopilotKit Cloud features)
+   ```
 
-    # Using npm
-    npm run dev
+4. Start the development server:
 
-    # Using yarn
-    yarn dev
+   ```bash
+   # Using pnpm
+   pnpm dev
 
-    # Using bun
-    bun run dev
-    ```
+   # Using npm
+   npm run dev
 
-    This will start both the UI and agent servers concurrently.
+   # Using yarn
+   yarn dev
 
-6. ✅ You're done!
+   # Using bun
+   bun run dev
+   ```
 
-    Open http://localhost:3000 to use the starter and try it out!
+   This will start both the UI and agent servers concurrently.
 
-    <details>
-    
-    <summary>
-    Using the canvas starter-> 
-    
-    </summary>
+5. ✅ You're done!
 
-    Once the application is running, you can:
+   Open http://localhost:3000 to use the starter and try it out!
 
-    1. **Create Cards**: Use the "New Item" button or ask the AI to create cards
-    - "Create a new project"
-    - "Add an entity and a note"
-    - "Create a chart with sample metrics"
+   <details>
 
-    2. **Edit Cards**: Click on any field to edit directly, or ask the AI
-    - "Set the project field1 to 'Q1 Planning'"
-    - "Add a checklist item 'Review budget'"
-    - "Update the chart metrics"
+   <summary>
+   Using the canvas starter->
 
-    3. **Sync with Google Sheets**: Use the Google Sheets button or ask the AI
-    - "Create a new Google Sheet" - Creates a sheet for syncing canvas data
-    - "Sync all items to Google Sheets" - Syncs current canvas state to the sheet
-    - "Get the sheet URL" - Retrieves the Google Sheets link
+   </summary>
 
-    4. **Execute Plans**: Give the AI multi-step instructions
-    - "Create 3 projects with different priorities and add 2 checklist items to each"
-    - The AI will create a plan and execute it step by step with visual progress
+   Once the application is running, you can:
 
-    5. **View JSON**: Toggle between the visual canvas and JSON view using the button at the bottom
+   1. **Create Cards**: Use the "New Item" button or ask the AI to create cards
 
+   - "Create a new project"
+   - "Add an entity and a note"
+   - "Create a chart with sample metrics"
 
-    </details>
+   2. **Edit Cards**: Click on any field to edit directly, or ask the AI
 
+   - "Set the project field1 to 'Q1 Planning'"
+   - "Add a checklist item 'Review budget'"
+   - "Update the chart metrics"
 
+   3. **Sync with Google Sheets**: Use the Google Sheets button or ask the AI
 
+   - "Create a new Google Sheet" - Creates a sheet for syncing canvas data
+   - "Sync all items to Google Sheets" - Syncs current canvas state to the sheet
+   - "Get the sheet URL" - Retrieves the Google Sheets link
+
+   4. **Execute Plans**: Give the AI multi-step instructions
+
+   - "Create 3 projects with different priorities and add 2 checklist items to each"
+   - The AI will create a plan and execute it step by step with visual progress
+
+   5. **View JSON**: Toggle between the visual canvas and JSON view using the button at the bottom
+
+   </details>
 
 ### Available Scripts
+
 The following scripts can also be run using your preferred package manager:
+
 - `dev` - Starts both UI and agent servers in development mode
 - `dev:debug` - Starts development servers with debug logging enabled
 - `dev:ui` - Starts only the Next.js UI server
@@ -204,7 +216,7 @@ graph TB
         Chat[CopilotChat]
         SheetsBtn[Google Sheets<br/>Menu]
     end
-    
+
     subgraph "Backend (Python)"
         Agent[LlamaIndex Agent<br/>agent.py]
         Tools[Backend Tools<br/>- set_plan<br/>- update_plan_progress<br/>- complete_plan]
@@ -212,16 +224,16 @@ graph TB
         AgentState[Workflow Context<br/>State Management]
         Model[LLM<br/>GPT-4o]
     end
-    
+
     subgraph "External Services"
         Composio[Composio API<br/>Tool Integration]
         GSheets[Google Sheets<br/>API]
     end
-    
+
     subgraph "Communication"
         Runtime[CopilotKit Runtime<br/>:9000]
     end
-    
+
     UI <--> State
     SheetsBtn --> UI
     State <--> Runtime
@@ -234,16 +246,17 @@ graph TB
     Composio --> GSheets
     Agent --> AgentState
     Agent --> Model
-    
+
     style UI text-decoration:none,fill:#e1f5fe
     style Agent text-decoration:none,fill:#fff3e0
     style Runtime text-decoration:none,fill:#f3e5f5,color:#111111
     style Composio text-decoration:none,fill:#e8f5e9,color:#111111
     style GSheets text-decoration:none,fill:#fff9c4,color:#111111
-    
+
     click UI "https://github.com/CopilotKit/canvas-with-llamaindex/blob/main/src/app/page.tsx"
     click Agent "https://github.com/CopilotKit/canvas-with-llamaindex/blob/main/agent/agent/agent.py"
 ```
+
 </details>
 
 <details>
@@ -259,31 +272,34 @@ sequenceDiagram
     participant Tools
     participant Composio
     participant GSheets as Google Sheets
-    
+
     User->>UI: Interact with canvas
     UI->>CK: Update state via useCoAgent
     CK->>Agent: Send state + message
     Agent->>Agent: Process with GPT-4o
     Agent->>Tools: Execute tools
-    
+
     alt Google Sheets Sync
         Agent->>Composio: Execute sheets_sync_all
         Composio->>GSheets: Update spreadsheet
         GSheets-->>Composio: Confirm update
         Composio-->>Agent: Return status
     end
-    
+
     Tools-->>Agent: Return results
     Agent->>CK: Return updated state
     CK->>UI: Sync state changes
     UI->>User: Display updates
-    
+
     Note over Agent: Maintains ground truth
     Note over UI,CK: Real-time bidirectional sync
     Note over Composio,GSheets: External tool integration
 ```
+
 #### Frontend (Next.js + CopilotKit)
+
 The main UI component is in [`src/app/page.tsx`](https://github.com/CopilotKit/canvas-with-llamaindex/blob/main/src/app/page.tsx). It includes:
+
 - **Canvas Management**: Visual grid of cards with create, read, update, and delete operations
 - **State Synchronization**: Uses `useCoAgent` hook for real-time state sync with the agent
 - **Frontend Actions**: Exposed as tools to the AI agent via `useCopilotAction`
@@ -292,7 +308,9 @@ The main UI component is in [`src/app/page.tsx`](https://github.com/CopilotKit/c
 - **HITL (Tool-based)**: Uses `useCopilotAction` with `renderAndWaitForResponse` for disambiguation prompts (e.g., choosing an item or card type)
 
 #### Backend (LlamaIndex Agent)
+
 The agent logic is in [`agent/agent/agent.py`](https://github.com/CopilotKit/canvas-with-llamaindex/blob/main/agent/agent/agent.py). It features:
+
 - **Workflow Context**: Uses LlamaIndex's Context for state management and event streaming
 - **Tool Integration**: Backend tools for planning, frontend tools integration via CopilotKit
 - **Composio Integration**: Leverages Composio for external service connections (Google Sheets, etc.)
@@ -307,7 +325,9 @@ The agent logic is in [`agent/agent/agent.py`](https://github.com/CopilotKit/can
 <summary>Schema -></summary>
 
 #### Card Field Schema
+
 Each card type has specific fields defined in the agent:
+
 - **Project**: field1 (text), field2 (select), field3 (date), field4 (checklist)
 - **Entity**: field1 (text), field2 (select), field3 (tags), field3_options (available tags)
 - **Note**: field1 (textarea content)
@@ -352,9 +372,8 @@ const Main = () => {
   // ...
 }
 ```
-  
-</details>
 
+</details>
 
 <details>
 
@@ -377,7 +396,7 @@ You can then handle this tool with CopilotKit's `useCopilotAction`
 
 ```tsx
 // page.tsx
-import { useCopilotAction } from "@copilotkit/core"
+import { useCopilotAction } from "@copilotkit/core";
 
 const Main = () => {
   // ...
@@ -387,17 +406,22 @@ const Main = () => {
     description: "Say hello to the name, make sure to get it first",
     available: "remote",
     parameters: [
-      { name: "name", type: "string", required: true, description: "The name to say hi to" },
+      {
+        name: "name",
+        type: "string",
+        required: true,
+        description: "The name to say hi to",
+      },
     ],
     handler: ({ description }: { description: string }) => {
-      return "Hello, Tyler" // tool_result
+      return "Hello, Tyler"; // tool_result
     },
   });
 
   // ...
-}
+};
 ```
-  
+
 </details>
 
 ### Customization Guide
@@ -442,6 +466,7 @@ const Main = () => {
 <summary>Agent connection issues -></summary>
 
 If you see "I'm having trouble connecting to my tools", make sure:
+
 1. The LlamaIndex agent is running on port 9000 (check terminal output)
 2. Your OpenAI API key is set correctly in `agent/.env`
 3. Both servers started successfully (UI and agent)
@@ -453,6 +478,7 @@ If you see "I'm having trouble connecting to my tools", make sure:
 <summary>Port already in use -></summary>
 
 If you see "[Errno 48] Address already in use":
+
 1. The agent might still be running from a previous session
 2. Kill the process using the port: `lsof -ti:9000 | xargs kill -9`
 3. For the UI port: `lsof -ti:3000 | xargs kill -9`
@@ -464,6 +490,7 @@ If you see "[Errno 48] Address already in use":
 <summary>State synchronization issues -></summary>
 
 If the canvas and AI seem out of sync:
+
 1. Check the browser console for errors
 2. Ensure all frontend actions are properly registered
 3. Verify the agent is using the latest shared state (not cached values)
@@ -475,6 +502,7 @@ If the canvas and AI seem out of sync:
 <summary>Google Sheets integration issues -></summary>
 
 If Google Sheets sync is not working:
+
 1. Verify your Composio API key is set correctly in `agent/.env`
 2. Check if you need to authenticate with Google Sheets (the agent will provide an auth URL)
 3. Ensure the `COMPOSIO_USER_ID` is set (defaults to "default")
@@ -487,13 +515,13 @@ If Google Sheets sync is not working:
 <summary>Python dependencies -></summary>
 
 If you encounter Python import errors:
+
 ```bash
 cd agent
 uv sync
 ```
 
 </details>
-
 
 <details>
 
